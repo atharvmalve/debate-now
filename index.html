@@ -1,0 +1,870 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sharpen Your Thinking</title>
+    
+    <script src="https://cdn.tailwindcss.com"></script>
+    
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+    
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    fontFamily: {
+                        sans: ['Plus Jakarta Sans', 'sans-serif'],
+                    },
+                    colors: {
+                        google: {
+                            blue: '#1a73e8',
+                            darkBg: '#202124',
+                            darkSurface: '#2d2f31',
+                            textDark: '#e8eaed',
+                            secondaryDark: '#9aa0a6',
+                            textLight: '#202124',
+                            secondaryLight: '#5f6368',
+                            lightBg: '#ffffff',
+                            lightSurface: '#f8f9fa'
+                        }
+                    }
+                }
+            }
+        }
+    </script>
+
+    <style>
+        body {
+            font-family: 'Plus Jakarta Sans', sans-serif;
+            background-color: var(--bg-primary);
+            -webkit-font-smoothing: antialiased;
+        }
+
+        /* Fluid transitions inspired by Apple HID guidelines */
+        .premium-transition {
+            transition: all 400ms cubic-bezier(0.16, 1, 0.3, 1);
+        }
+        
+        .interactive-scale:active {
+            transform: scale(0.97);
+        }
+
+        /* Subtle Audio/Voice Pulsing Animations */
+        @keyframes pulse-glow {
+            0%, 100% { box-shadow: 0 0 0 0 rgba(26, 115, 232, 0.2), 0 0 0 1px rgba(26, 115, 232, 0.2); }
+            50% { box-shadow: 0 0 24px 6px rgba(26, 115, 232, 0.4), 0 0 0 1px rgba(26, 115, 232, 0.4); }
+        }
+        
+        .active-speaker-glow {
+            animation: pulse-glow 2s infinite ease-in-out;
+            border-color: #1a73e8 !important;
+        }
+
+        /* Custom Progress Circle Layout */
+        .progress-ring__circle {
+            transition: stroke-dashoffset 0.8s cubic-bezier(0.16, 1, 0.3, 1);
+            transform: rotate(-90deg);
+            transform-origin: 50% 50%;
+        }
+
+        /* Hide Scrollbar across platforms safely */
+        .no-scrollbar::-webkit-scrollbar { display: none; }
+        .no-scrollbar { -ms-overflow-style: none; scrollbar-width: none; }
+    </style>
+</head>
+<body class="h-screen w-screen overflow-hidden select-none bg-white text-google-textLight">
+
+<div class="w-full h-full flex flex-col relative">
+
+    <div id="setupScreen" class="w-full h-full flex flex-col md:grid md:grid-cols-12 items-center justify-center p-6 md:p-16 gap-8 bg-google-lightBg overflow-y-auto">
+        
+        <div class="w-full md:col-span-7 flex flex-col items-center justify-center h-full max-w-2xl mx-auto">
+            <div class="w-full aspect-[16/10] bg-[#111111] rounded-[28px] relative overflow-hidden shadow-2xl flex flex-col items-center justify-center group">
+                <div class="absolute inset-0 bg-gradient-to-tr from-[#151516] via-[#1e2024] to-[#2d3037] opacity-90"></div>
+                <div class="absolute inset-0 opacity-10 bg-[radial-gradient(#ffffff_1px,transparent_1px)] [background-size:16px_16px]"></div>
+                
+                <div class="relative z-10 flex flex-col items-center space-y-4">
+                    <div class="w-24 h-24 sm:w-28 sm:h-28 rounded-full bg-gradient-to-b from-google-blue to-[#4285f4] p-[3px] shadow-xl premium-transition group-hover:scale-105">
+                        <div class="w-full h-full bg-[#202124] rounded-full flex items-center justify-center overflow-hidden">
+                            <span class="text-white text-3xl font-bold tracking-wider">YOU</span>
+                        </div>
+                    </div>
+                    <div class="px-4 py-1.5 rounded-full bg-white/10 backdrop-blur-md border border-white/10 text-white/90 text-xs font-medium tracking-wide">
+                        Ready to connect
+                    </div>
+                </div>
+
+                <div class="absolute bottom-6 left-6 right-6 flex items-center justify-between z-10">
+                    <div class="flex items-center space-y-0.5 space-x-1.5 bg-[#202124]/80 backdrop-blur-md px-4 py-2 rounded-full border border-white/5">
+                        <div class="w-2 h-2 rounded-full bg-green-500 animate-pulse"></div>
+                        <span class="text-white/80 text-xs font-medium">Microphone Check</span>
+                    </div>
+                    <div class="flex space-x-1 items-center h-4">
+                        <div class="w-0.5 bg-google-blue h-2 rounded-full animate-bounce" style="animation-delay: 0.1s"></div>
+                        <div class="w-0.5 bg-google-blue h-3 rounded-full animate-bounce" style="animation-delay: 0.2s"></div>
+                        <div class="w-0.5 bg-google-blue h-1 rounded-full animate-bounce" style="animation-delay: 0.3s"></div>
+                        <div class="w-0.5 bg-google-blue h-4 rounded-full animate-bounce" style="animation-delay: 0.4s"></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="w-full md:col-span-5 flex flex-col justify-center space-y-8 max-w-md mx-auto">
+            <div class="space-y-2.5">
+                <h1 class="text-[32px] sm:text-[40px] font-bold tracking-tight text-google-textLight leading-tight">Sharpen Your Thinking</h1>
+                <p class="text-google-secondaryLight text-[15px] font-medium">Debate critical structural topics against advanced AI models to refine your reasoning skills.</p>
+            </div>
+
+            <div class="space-y-6">
+                <div class="space-y-2">
+                    <label class="text-[11px] font-bold uppercase tracking-wider text-google-secondaryLight">Debate Topic</label>
+                    <div class="bg-google-lightSurface border border-[#e0e0e0] rounded-[20px] focus-within:border-google-blue focus-within:ring-2 focus-within:ring-google-blue/10 premium-transition p-1.5 shadow-sm">
+                        <input type="text" id="topic" value="Should AI replace human school teachers?" class="w-full px-4 py-3 bg-transparent text-[15px] text-google-textLight font-medium outline-none placeholder-google-secondaryLight/50">
+                    </div>
+                </div>
+
+                <div class="grid grid-cols-1 gap-5">
+                    <div class="space-y-2">
+                        <label class="text-[11px] font-bold uppercase tracking-wider text-google-secondaryLight">Your Position</label>
+                        <div class="bg-google-lightSurface border border-[#e0e0e0] p-1 rounded-[18px] flex gap-1 shadow-sm">
+                            <button type="button" onclick="selectSegment('position', 'FOR', this)" class="position-segment flex-1 py-3 rounded-[14px] text-[14px] font-bold premium-transition interactive-scale bg-google-blue text-white shadow-sm">FOR</button>
+                            <button type="button" onclick="selectSegment('position', 'AGAINST', this)" class="position-segment flex-1 py-3 rounded-[14px] text-[14px] font-bold premium-transition interactive-scale text-google-secondaryLight hover:text-google-textLight">AGAINST</button>
+                        </div>
+                    </div>
+
+                    <div class="space-y-2">
+                        <label class="text-[11px] font-bold uppercase tracking-wider text-google-secondaryLight">Duration</label>
+                        <div class="bg-google-lightSurface border border-[#e0e0e0] p-1 rounded-[18px] flex gap-1 shadow-sm">
+                            <button type="button" onclick="selectSegment('duration', '3', this)" class="duration-segment flex-1 py-3 rounded-[14px] text-[14px] font-bold premium-transition interactive-scale text-google-secondaryLight hover:text-google-textLight">3 min</button>
+                            <button type="button" onclick="selectSegment('duration', '5', this)" class="duration-segment flex-1 py-3 rounded-[14px] text-[14px] font-bold premium-transition interactive-scale bg-[#ffffff] border border-[#e0e0e0] text-google-textLight shadow-sm">5 min</button>
+                            <button type="button" onclick="selectSegment('duration', '10', this)" class="duration-segment flex-1 py-3 rounded-[14px] text-[14px] font-bold premium-transition interactive-scale text-google-secondaryLight hover:text-google-textLight">10 min</button>
+                        </div>
+                    </div>
+                </div>
+
+                <button class="w-full bg-google-blue hover:bg-[#1557b0] text-white font-bold text-[15px] py-4 px-6 rounded-[24px] shadow-lg shadow-google-blue/10 premium-transition interactive-scale flex items-center justify-center tracking-tight pt-4" onclick="initiateDebate()">
+                    Start Debate
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <div id="debateScreen" class="hidden flex-1 flex-col bg-google-darkBg relative w-full h-full premium-transition">
+        
+        <div class="w-full max-w-7xl mx-auto px-6 pt-6 flex items-center justify-between z-10 shrink-0">
+            <div class="max-w-xl pr-6 space-y-0.5">
+                <span class="text-[11px] font-bold uppercase tracking-widest text-google-blue">Live Interaction Canvas</span>
+                <h2 id="displayTopic" class="text-[16px] font-bold tracking-tight text-google-textDark truncate">Topic Bar Frame Layout</h2>
+                <p id="displayPositions" class="text-[12px] text-google-secondaryDark font-medium tracking-wide"></p>
+            </div>
+            
+            <div class="bg-google-darkSurface text-google-textDark px-4 py-2 rounded-full border border-white/5 font-bold text-[14px] tracking-wider tabular-nums shadow-xl" id="timerDisplay">
+                05:00
+            </div>
+        </div>
+
+        <div class="flex-1 w-full max-w-6xl mx-auto px-6 py-6 flex flex-col md:grid md:grid-cols-2 gap-6 items-center justify-center content-center h-full">
+            
+            <div id="cardUser" class="w-full bg-google-darkSurface rounded-[32px] flex flex-col items-center justify-center text-center relative aspect-[16/11] md:aspect-square max-h-[380px] border border-white/5 shadow-2xl premium-transition">
+                <div class="flex flex-col items-center space-y-4">
+                    <div class="w-20 h-20 rounded-full bg-gradient-to-b from-google-blue to-[#4285f4] p-[2px] shadow-lg">
+                        <div class="w-full h-full bg-[#202124] rounded-full flex items-center justify-center">
+                            <span class="text-white text-xl font-bold tracking-wider">YOU</span>
+                        </div>
+                    </div>
+                    <div>
+                        <span class="text-[18px] font-bold tracking-tight text-google-textDark block">You</span>
+                        <span class="text-[12px] text-google-secondaryDark font-semibold tracking-wide uppercase mt-0.5 block">Responding</span>
+                    </div>
+                </div>
+            </div>
+
+            <div id="cardAI" class="w-full bg-google-darkSurface rounded-[32px] flex flex-col items-center justify-center text-center relative aspect-[16/11] md:aspect-square max-h-[380px] border border-white/5 shadow-2xl premium-transition">
+                <div class="flex flex-col items-center space-y-4">
+                    <div class="w-20 h-20 rounded-full bg-gradient-to-b from-[#8ab4f8] to-purple-400 p-[2px] shadow-lg">
+                        <div class="w-full h-full bg-[#202124] rounded-full flex items-center justify-center">
+                            <span class="text-white text-xl font-bold tracking-wider">AI</span>
+                        </div>
+                    </div>
+                    <div>
+                        <span class="text-[18px] font-bold tracking-tight text-google-textDark block">Opponent</span>
+                        <span class="text-[12px] text-google-secondaryDark font-semibold tracking-wide uppercase mt-0.5 block">AI Faculty Analyst</span>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+
+        <div class="w-full max-w-3xl mx-auto px-6 text-center shrink-0 min-h-[80px] flex items-center justify-center mb-4">
+            <div class="bg-google-darkSurface/60 backdrop-blur-xl border border-white/5 px-6 py-4 rounded-2xl shadow-2xl w-full">
+                <div id="sttPreview" class="text-[15px] font-medium tracking-normal text-google-textDark leading-relaxed max-w-full break-words premium-transition">
+                    Hold SPACEBAR or interaction triggers to activate live voice stream channel.
+                </div>
+            </div>
+        </div>
+
+        <div class="w-full h-28 flex items-center justify-center px-8 shrink-0 pb-6 z-10">
+            <div class="flex items-center gap-5 bg-[#1f2023] border border-white/5 px-6 py-3 rounded-full shadow-2xl">
+                <button id="muteToggle" class="w-12 h-12 rounded-full bg-google-darkSurface text-google-textDark hover:bg-[#3c4043] premium-transition flex items-center justify-center cursor-pointer interactive-scale border border-white/5 shadow-lg" onclick="toggleMute()" title="Mute Engine Audio">
+                    <svg id="muteIconSvg" class="w-5 h-5" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M15.536 8.464a5 5 0 010 7.072m2.828-9.9a9 9 0 010 12.728M5.586 15H4a1 1 0 01-1-1v-4a1 1 0 011-1h1.586l4.707-4.707C10.923 3.663 12 4.109 12 5v14c0 .891-1.077 1.337-1.707.707L5.586 15z"/></svg>
+                </button>
+
+                <button id="micBtn" class="h-14 px-8 rounded-full bg-google-blue text-white font-bold text-[14px] tracking-wide hover:bg-[#1557b0] premium-transition flex items-center justify-center gap-2.5 cursor-pointer interactive-scale shadow-lg shadow-google-blue/20"
+                        onmousedown="startPushToTalk()" 
+                        onmouseup="stopPushToTalk()"
+                        onmouseleave="if(isRecording) stopPushToTalk()">
+                    <div class="w-2.5 h-2.5 bg-white rounded-full animate-ping hidden" id="micLiveIndicator animate-pulse"></div>
+                    <span id="micBtnText">Hold to Talk</span>
+                </button>
+
+                <button class="w-12 h-12 rounded-full bg-[#ea4335] text-white hover:bg-[#d93025] premium-transition flex items-center justify-center cursor-pointer interactive-scale shadow-lg" onclick="finishDebate(false)" title="End Dialogue Stream Link">
+                    <svg class="w-5 h-5" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M6 18L18 6M6 6l12 12"/></svg>
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <div id="loadingScreen" class="hidden w-full h-full bg-google-lightBg flex flex-col justify-center items-center p-8 text-center premium-transition">
+        <div class="w-20 h-20 relative mb-8 flex items-center justify-center">
+            <svg class="w-full h-full animate-spin text-google-lightSurface" viewBox="0 0 40 40">
+                <circle class="stroke-current text-gray-200" stroke-width="4" fill="transparent" r="16" cx="20" cy="20"></circle>
+                <circle class="stroke-current text-google-blue" stroke-width="4" stroke-dasharray="100" stroke-dashoffset="60" stroke-linecap="round" fill="transparent" r="16" cx="20" cy="20"></circle>
+            </svg>
+        </div>
+        
+        <div class="space-y-2 max-w-sm">
+            <h2 class="text-[24px] font-bold tracking-tight text-google-textLight">Analyzing your debate</h2>
+            <p class="text-[14px] text-google-secondaryLight font-medium leading-relaxed">Building your personalized coaching report by processing logical sequencing structures...</p>
+        </div>
+    </div>
+
+    <div id="reportScreen" class="hidden w-full h-full flex flex-col bg-google-lightBg premium-transition">
+        <div class="px-8 py-6 border-b border-[#e0e0e0] flex flex-col sm:flex-row justify-between items-start sm:items-center gap-4 bg-google-lightBg shrink-0">
+            <div>
+                <span class="text-[11px] font-bold uppercase tracking-widest text-google-blue">Performance Insights</span>
+                <h2 class="text-[24px] font-bold tracking-tight text-google-textLight">Coaching Insights</h2>
+                <p class="text-[13px] text-google-secondaryLight font-medium mt-0.5">Personalized metrics compiled to sharpen critical argumentation architecture.</p>
+            </div>
+        </div>
+
+        <div class="flex-1 overflow-y-auto p-6 md:p-8 space-y-8 no-scrollbar bg-google-lightSurface">
+            <div class="max-w-4xl mx-auto space-y-6">
+                
+                <div class="bg-white rounded-[28px] p-8 shadow-sm border border-[#e0e0e0] grid grid-cols-1 md:grid-cols-12 gap-8 items-center">
+                    <div class="md:col-span-4 flex flex-col items-center justify-center border-b md:border-b-0 md:border-r border-[#f0f0f0] pb-6 md:pb-0 md:pr-6">
+                        <div class="relative w-36 h-36 flex items-center justify-center">
+                            <svg class="w-full h-full transform -rotate-90" viewBox="0 0 120 120">
+                                <circle cx="60" cy="60" r="50" stroke="#f1f3f4" stroke-width="10" fill="transparent" />
+                                <circle id="reportScoreCircle" cx="60" cy="60" r="50" stroke="#1a73e8" stroke-width="10" fill="transparent" 
+                                        class="progress-ring__circle" stroke-dasharray="314.16" stroke-dashoffset="314.16" stroke-linecap="round" />
+                            </svg>
+                            <div class="absolute flex flex-col items-center justify-center">
+                                <span id="reportOverallScore" class="text-[44px] font-bold tracking-tight text-google-textLight leading-none">--</span>
+                                <span class="text-[10px] text-google-secondaryLight font-bold uppercase tracking-widest mt-1.5">Score</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="md:col-span-8 space-y-2">
+                        <h4 class="text-[11px] font-bold uppercase tracking-widest text-google-textLight">Executive Summary</h4>
+                        <p id="reportSummary" class="text-[15px] leading-relaxed text-google-secondaryLight font-medium"></p>
+                    </div>
+                </div>
+
+                <div class="bg-white rounded-[28px] p-8 border border-[#e0e0e0] shadow-sm">
+                    <div class="text-[11px] font-bold text-google-textLight uppercase tracking-widest mb-6">Performance Breakdown</div>
+                    <div id="reportScoresGrid" class="grid grid-cols-1 md:grid-cols-2 gap-x-8 gap-y-5">
+                        </div>
+                </div>
+
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                    <div class="bg-white rounded-[28px] p-6 border border-[#e0e0e0] shadow-sm flex flex-col">
+                        <div class="flex items-center gap-2 text-[11px] font-bold text-green-600 uppercase tracking-widest mb-4">
+                            <div class="w-1.5 h-1.5 rounded-full bg-green-600"></div>
+                            Strengths Identified
+                        </div>
+                        <div id="reportStrengths" class="space-y-4 flex-1 divide-y divide-[#f1f3f4]"></div>
+                    </div>
+                    
+                    <div class="bg-white rounded-[28px] p-6 border border-[#e0e0e0] shadow-sm flex flex-col">
+                        <div class="flex items-center gap-2 text-[11px] font-bold text-amber-600 uppercase tracking-widest mb-4">
+                            <div class="w-1.5 h-1.5 rounded-full bg-amber-600"></div>
+                            Areas to Improve
+                        </div>
+                        <div id="reportWeaknesses" class="space-y-4 flex-1 divide-y divide-[#f1f3f4]"></div>
+                    </div>
+                </div>
+
+                <div class="bg-white rounded-[28px] p-8 border border-[#e0e0e0] shadow-sm">
+                    <div class="text-[11px] font-bold text-google-textLight uppercase tracking-widest mb-6">Strategic Rebuttal Optimization</div>
+                    <div id="reportRebuttals" class="space-y-5"></div>
+                </div>
+
+                <div id="fallaciesSection" class="bg-white rounded-[28px] p-8 border border-[#e0e0e0] shadow-sm">
+                    <div class="text-[11px] font-bold text-[#ea4335] uppercase tracking-widest mb-6">Logical Fallacies Monitored</div>
+                    <div id="reportFallacies" class="space-y-4"></div>
+                </div>
+
+                <div class="bg-white rounded-[28px] p-8 border border-[#e0e0e0] shadow-sm">
+                    <div class="text-[11px] font-bold text-google-textLight uppercase tracking-widest mb-6">Personalized Coaching Recommendations</div>
+                    <div id="reportRecommendations" class="space-y-4"></div>
+                </div>
+            </div>
+        </div>
+
+        <div class="px-8 py-5 border-t border-[#e0e0e0] flex justify-end bg-google-lightBg shrink-0">
+            <button class="bg-google-blue hover:bg-[#1557b0] text-white font-bold text-[14px] py-3 px-6 rounded-full premium-transition shadow-md interactive-scale flex items-center justify-center" onclick="returnToSetup()">
+                New Session
+            </button>
+        </div>
+    </div>
+
+</div>
+
+<input type="hidden" id="baseUrl" value="http://127.0.0.1:8000">
+<input type="hidden" id="position" value="FOR">
+<input type="hidden" id="duration" value="5">
+<select id="voiceSelect" class="hidden"></select>
+<div id="transcriptArea" class="hidden"></div>
+<div id="currentDateDisplay" class="hidden"></div>
+<div id="lobbyAvatarWrapper" class="hidden"></div>
+<div id="lobbyFallbackInitial" class="hidden"></div>
+<img id="lobbyAvatarImg" class="hidden" src="" alt="">
+<input type="file" id="avatarFileInput" class="hidden">
+<div id="meetUserFallbackInitial" class="hidden"></div>
+<img id="meetUserAvatarImg" class="hidden" src="" alt="">
+<div id="engineStatus" class="hidden"></div>
+<div id="ttsEngineLabel" class="hidden"></div>
+<div id="loadingStatusText" class="hidden"></div>
+
+<script>
+    let activeSessionId = null;
+    let isRecording = false;
+    let isMuted = false;
+    let isKeyDownGuard = false; 
+    let countdownInterval = null;
+    let totalSecondsLeft = 0;
+    let statusPollingInterval = null;
+
+    // Speech Layer Engines Global Reference Interfaces Configurations Trackers 
+    let recognition = null;
+    let synth = window.speechSynthesis;
+    let availableVoices = [];
+
+    window.addEventListener('DOMContentLoaded', () => {
+        loadVoices();
+    });
+
+    function loadVoices() {
+        if (!synth) return;
+        availableVoices = synth.getVoices();
+        const voiceSelect = document.getElementById('voiceSelect');
+        voiceSelect.innerHTML = '';
+
+        availableVoices.forEach((voice, index) => {
+            if (voice.lang.includes('en')) {
+                const option = document.createElement('option');
+                option.value = index;
+                option.textContent = `${voice.name}`;
+                if (voice.name.includes('Natural') || voice.name.includes('Google') || voice.name.includes('Zira')) {
+                    option.selected = true;
+                }
+                voiceSelect.appendChild(option);
+            }
+        });
+
+        if (voiceSelect.children.length === 0) {
+            const opt = document.createElement('option');
+            opt.value = "default";
+            opt.textContent = "Default Browser Audio Link Synthesizer Interface Engine Layer";
+            voiceSelect.appendChild(opt);
+        }
+    }
+
+    if (synth && synth.onvoiceschanged !== undefined) {
+        synth.onvoiceschanged = loadVoices;
+    }
+
+    function selectSegment(field, value, element) {
+        document.getElementById(field).value = value;
+        const className = field + '-segment';
+        document.querySelectorAll('.' + className).forEach(btn => {
+            btn.classList.remove('bg-google-blue', 'text-white', 'bg-[#ffffff]', 'border', 'border-[#e0e0e0]', 'text-google-textLight', 'shadow-sm');
+            btn.classList.add('text-google-secondaryLight', 'hover:text-google-textLight');
+        });
+        
+        element.classList.remove('text-google-secondaryLight', 'hover:text-google-textLight');
+        if (field === 'position') {
+            element.classList.add('bg-google-blue', 'text-white', 'shadow-sm');
+        } else {
+            element.classList.add('bg-[#ffffff]', 'border', 'border-[#e0e0e0]', 'text-google-textLight', 'shadow-sm');
+        }
+    }
+
+    function getBaseUrl() {
+        return document.getElementById('baseUrl').value.replace(/\/$/, "");
+    }
+
+    function setupSpeechRecognition() {
+        const SpeechRecognition = window.SpeechRecognition || window.webkitSpeechRecognition;
+        if (!SpeechRecognition) {
+            document.getElementById('sttPreview').textContent = "Speech recognition layer interface is unsupported across current configuration nodes.";
+            document.getElementById('micBtn').disabled = true;
+            return;
+        }
+
+        recognition = new SpeechRecognition();
+        recognition.continuous = false;
+        recognition.interimResults = false;
+        recognition.lang = 'en-US';
+
+        recognition.onstart = () => {
+            isRecording = true;
+            document.getElementById('micBtnText').textContent = "Listening...";
+            document.getElementById('sttPreview').textContent = "Listening... Articulate your statement arguments.";
+            setSpeakerActiveVisual('user', true);
+        };
+
+        recognition.onerror = (event) => {
+            console.error("Speech diagnostic frame linkage fault error processing text assertion stream: ", event.error);
+            if (event.error === 'no-speech') {
+                document.getElementById('sttPreview').textContent = "No valid audio payload channel detected. Re-engage hold trigger configurations.";
+            } else {
+                document.getElementById('sttPreview').textContent = `Audio Subsystem Interface Interruption: ${event.error}`;
+            }
+            stopRecordingUI();
+        };
+
+        recognition.onend = () => {
+            stopRecordingUI();
+        };
+
+        recognition.onresult = (event) => {
+            const transcriptResult = event.results[0][0].transcript;
+            if (transcriptResult && transcriptResult.trim().length > 0) {
+                dispatchUserTurn(transcriptResult);
+            } else {
+                document.getElementById('sttPreview').textContent = "Empty contextual voice track assertions registered. Command ignored.";
+            }
+        };
+    }
+
+    function stopRecordingUI() {
+        isRecording = false;
+        document.getElementById('micBtnText').textContent = "Hold to Talk";
+        setSpeakerActiveVisual('user', false);
+    }
+
+    function setSpeakerActiveVisual(speakerKey, isActive) {
+        const targetCard = speakerKey === 'user' ? document.getElementById('cardUser') : document.getElementById('cardAI');
+        if (isActive) {
+            targetCard.classList.add('active-speaker-glow');
+        } else {
+            targetCard.classList.remove('active-speaker-glow');
+        }
+    }
+
+    function setupGlobalKeyboardBinds() {
+        window.addEventListener('keydown', (e) => {
+            if (e.code === 'Space' && !isKeyDownGuard) {
+                if (document.activeElement.tagName === 'INPUT' || document.activeElement.tagName === 'SELECT') {
+                    return;
+                }
+                e.preventDefault();
+                isKeyDownGuard = true;
+                synth.cancel(); 
+                setSpeakerActiveVisual('ai', false);
+                startPushToTalk();
+            }
+        });
+
+        window.addEventListener('keyup', (e) => {
+            if (e.code === 'Space') {
+                if (document.activeElement.tagName === 'INPUT' || document.activeElement.tagName === 'SELECT') {
+                    return;
+                }
+                e.preventDefault();
+                isKeyDownGuard = false;
+                stopPushToTalk();
+            }
+        });
+    }
+
+    function startPushToTalk() {
+        if (isRecording || !recognition) return;
+        synth.cancel();
+        setSpeakerActiveVisual('ai', false);
+        try {
+            recognition.start();
+        } catch (e) {
+            console.error("Speech pipeline layer processing collisions intercepted: ", e);
+        }
+    }
+
+    function stopPushToTalk() {
+        if (!isRecording || !recognition) return;
+        try {
+            recognition.stop();
+        } catch (e) {
+            console.error(e);
+        }
+    }
+
+    function toggleMute() {
+        isMuted = !isMuted;
+        const muteToggleBtn = document.getElementById('muteToggle');
+        const muteSvgNode = document.getElementById('muteIconSvg');
+        
+        if (isMuted) {
+            muteToggleBtn.classList.add('bg-red-500/20', 'text-[#ea4335]');
+            synth.cancel();
+            setSpeakerActiveVisual('ai', false);
+            muteSvgNode.innerHTML = `<path stroke-linecap="round" stroke-linejoin="round" d="M17.25 9.75L19.5 12m0 0l2.25 2.25M19.5 12l2.25-2.25M19.5 12l-2.25 2.25m-10.5-6L4.707 5.707C4.077 5.077 3 5.523 3 6.414v11.172c0 .891 1.077 1.337 1.707.707L9 13.5H5.586a1 1 0 01-1-1v-4a1 1 0 011-1h1.586z"/>`;
+        } else {
+            muteToggleBtn.classList.remove('bg-red-500/20', 'text-[#ea4335]');
+            muteSvgNode.innerHTML = `<path stroke-linecap="round" stroke-linejoin="round" d="M15.536 8.464a5 5 0 010 7.072m2.828-9.9a9 9 0 010 12.728M5.586 15H4a1 1 0 01-1-1v-4a1 1 0 011-1h1.586l4.707-4.707C10.923 3.663 12 4.109 12 5v14c0 .891-1.077 1.337-1.707.707L5.586 15z"/>`;
+        }
+    }
+
+    function speakText(text) {
+        if (isMuted || !synth) return;
+        synth.cancel();
+
+        const utterance = new SpeechSynthesisUtterance(text);
+        const voiceSelect = document.getElementById('voiceSelect');
+        
+        if (voiceSelect.value !== "default" && availableVoices[voiceSelect.value]) {
+            utterance.voice = availableVoices[voiceSelect.value];
+        }
+
+        utterance.onstart = () => {
+            if (!isRecording) {
+                setSpeakerActiveVisual('ai', true);
+            }
+        };
+
+        utterance.onend = () => {
+            setSpeakerActiveVisual('ai', false);
+        };
+
+        utterance.onerror = (e) => {
+            console.error("Synthesizer layer compilation output module track fault: ", e);
+            setSpeakerActiveVisual('ai', false);
+        };
+
+        synth.speak(utterance);
+    }
+
+    function startArenaTimer(minutes) {
+        clearInterval(countdownInterval);
+        totalSecondsLeft = minutes * 60;
+        updateTimerDisplay();
+
+        countdownInterval = setInterval(() => {
+            totalSecondsLeft--;
+            updateTimerDisplay();
+
+            if (totalSecondsLeft <= 0) {
+                clearInterval(countdownInterval);
+                finishDebate(true);
+            }
+        }, 1000);
+    }
+
+    function updateTimerDisplay() {
+        const m = Math.floor(totalSecondsLeft / 60).toString().padStart(2, '0');
+        const s = (totalSecondsLeft % 60).toString().padStart(2, '0');
+        document.getElementById('timerDisplay').textContent = `${m}:${s}`;
+    }
+
+    function postBubble(speaker, text) {
+        const ledger = document.getElementById('transcriptArea');
+        const timestamp = new Date().toLocaleTimeString();
+        ledger.innerHTML += `<div>[${timestamp}] ${speaker.toUpperCase()}: ${text}</div>`;
+
+        const displayLabel = speaker === 'user' ? "You: " : speaker === 'ai' ? "AI Opponent: " : "";
+        document.getElementById('sttPreview').innerHTML = `<span class="text-google-blue font-bold">${displayLabel}</span> <span class="opacity-95">${escapeHtml(text)}</span>`;
+    }
+
+    function escapeHtml(str) {
+        return str.replace(/&/g, "&amp;").replace(/</g, "&lt;").replace(/>/g, "&gt;").replace(/"/g, "&quot;").replace(/'/g, "&#039;");
+    }
+
+    async function initiateDebate() {
+        const topic = document.getElementById('topic').value;
+        const pos = document.getElementById('position').value;
+        const duration = parseInt(document.getElementById('duration').value);
+
+        try {
+            const res = await fetch(`${getBaseUrl()}/sessions`, {
+                method: 'POST',
+                headers: { 'Content-Type': 'application/json' },
+                body: JSON.stringify({ topic: topic, position: pos, duration_minutes: duration })
+            });
+            const sessionData = await res.json();
+
+            if (!res.ok) throw new Error(sessionData.detail || "Gateway routing authentication pipeline error.");
+
+            activeSessionId = sessionData.session_id;
+
+            document.getElementById('setupScreen').style.display = 'none';
+            document.getElementById('debateScreen').style.display = 'flex';
+            document.getElementById('displayTopic').textContent = topic;
+            document.getElementById('displayPositions').textContent = `Your Position: ${pos} | Opponent Position: ${sessionData.ai_position}`;
+            
+            document.getElementById('sttPreview').textContent = "Asynchronous matrix pipeline initialization complete. Formulating opening statement parameters...";
+            document.activeElement.blur();
+
+            setupSpeechRecognition();
+            setupGlobalKeyboardBinds();
+            startArenaTimer(duration);
+            triggerOpeningCall();
+
+        } catch (err) {
+            alert(`Link Establishment Failure: ${err.message}`);
+        }
+    }
+
+    async function triggerOpeningCall() {
+        try {
+            const res = await fetch(`${getBaseUrl()}/sessions/${activeSessionId}/opening`, { method: 'POST' });
+            const data = await res.json();
+
+            if (res.ok) {
+                postBubble("ai", data.response);
+                speakText(data.response);
+            } else {
+                document.getElementById('sttPreview').textContent = `Opening vector pipeline transaction failure: ${data.detail}`;
+            }
+        } catch (err) {
+            console.error(err);
+        }
+    }
+
+    async function dispatchUserTurn(textPayload) {
+        postBubble("user", textPayload);
+
+        try {
+            const res = await fetch(`${getBaseUrl()}/sessions/${activeSessionId}/message`, {
+                method: 'POST',
+                headers: { 'Content-Type': 'application/json' },
+                body: JSON.stringify({ message: textPayload })
+            });
+            const data = await res.json();
+
+            if (res.ok) {
+                postBubble("ai", data.response);
+                speakText(data.response);
+            } else {
+                document.getElementById('sttPreview').textContent = `Transaction frame mutation delivery failure: ${data.detail}`;
+            }
+        } catch (err) {
+            alert(`Context Channel Delivery Error Exception: ${err.message}`);
+        }
+    }
+
+    async function finishDebate(wasTimeout = false) {
+        clearInterval(countdownInterval);
+        if (synth) synth.cancel();
+        setSpeakerActiveVisual('user', false);
+        setSpeakerActiveVisual('ai', false);
+
+        if (wasTimeout) {
+            alert("Allocated time parameter sequence met. Compiling structural discovery vectors.");
+        }
+
+        if (!activeSessionId) {
+            returnToSetup();
+            return;
+        }
+
+        document.getElementById('debateScreen').style.display = 'none';
+        document.getElementById('loadingScreen').style.display = 'flex';
+
+        try {
+            const res = await fetch(`${getBaseUrl()}/sessions/${activeSessionId}/end`, { method: 'POST' });
+            if (!res.ok) throw new Error("Context structural processing links rejected request.");
+
+            beginReportStatusPolling();
+        } catch (err) {
+            alert(`Channel Disconnect Exception Call: ${err.message}`);
+            returnToSetup();
+        }
+    }
+
+    function beginReportStatusPolling() {
+        clearInterval(statusPollingInterval);
+        
+        statusPollingInterval = setInterval(async () => {
+            if (!activeSessionId) {
+                clearInterval(statusPollingInterval);
+                return;
+            }
+
+            try {
+                const res = await fetch(`${getBaseUrl()}/sessions/${activeSessionId}/analysis-status`);
+                if (!res.ok) {
+                    clearInterval(statusPollingInterval);
+                    alert("Analytical structural polling link down.");
+                    returnToSetup();
+                    return;
+                }
+                const statusData = await res.json();
+
+                if (statusData.status === 'COMPLETED') {
+                    clearInterval(statusPollingInterval);
+                    fetchAndRenderReport();
+                } else if (statusData.status === 'FAILED') {
+                    clearInterval(statusPollingInterval);
+                    alert("Evaluation parsing requires a sequence minimum of at least 4 contextual statement iterations to yield coaching summaries.");
+                    returnToSetup();
+                }
+            } catch (err) {
+                console.error("Pipeline tracing exception encountered: ", err);
+            }
+        }, 2000);
+    }
+
+    async function fetchAndRenderReport() {
+        try {
+            const res = await fetch(`${getBaseUrl()}/sessions/${activeSessionId}/report`);
+            if (!res.ok) throw new Error("Metrics storage array rejected execution query commands.");
+            
+            const report = await res.json();
+            
+            // Programmatic update of score metrics indicators
+            const score = report.scores.overall_score || 0;
+            document.getElementById('reportOverallScore').textContent = score;
+            document.getElementById('reportSummary').textContent = report.summary;
+
+            // Compute SVG Radial Path Offset Parameters dynamically based on data response
+            const circle = document.getElementById('reportScoreCircle');
+            const radius = circle.r.baseVal.value;
+            const circumference = radius * 2 * Math.PI;
+            circle.style.strokeDasharray = `${circumference} ${circumference}`;
+            const offset = circumference - (score / 100) * circumference;
+            circle.style.strokeDashoffset = offset;
+
+            // Render modern premium matrix progress rows matching Design Framework Requirements
+            const grid = document.getElementById('reportScoresGrid');
+            grid.innerHTML = '';
+            
+            const coreDimensions = [
+                { title: "Argument Strength", value: report.scores.argument_strength },
+                { title: "Persuasiveness", value: report.scores.persuasiveness },
+                { title: "Logic & Reasoning", value: report.scores.logical_reasoning },
+                { title: "Delivery Clarity", value: report.scores.clarity }
+            ];
+            
+            coreDimensions.forEach(dim => {
+                grid.innerHTML += `
+                    <div class="space-y-2">
+                        <div class="flex justify-between text-[13px] font-semibold tracking-tight">
+                            <span class="text-google-textLight">${dim.title}</span>
+                            <span class="text-google-blue">${dim.value}%</span>
+                        </div>
+                        <div class="w-full h-2 bg-[#f1f3f4] rounded-full overflow-hidden">
+                            <div class="h-full bg-google-blue rounded-full premium-transition" style="width: ${dim.value}%"></div>
+                        </div>
+                    </div>
+                `;
+            });
+
+            // Strengths Layout Mapping Structure Arrays
+            const strengthsContainer = document.getElementById('reportStrengths');
+            strengthsContainer.innerHTML = report.strengths.length ? '' : '<div class="text-[14px] text-google-secondaryLight py-2">No structural highlights processed.</div>';
+            report.strengths.forEach(s => {
+                strengthsContainer.innerHTML += `
+                    <div class="pt-3 first:pt-0">
+                        <div class="text-[14px] font-bold text-google-textLight tracking-tight">${escapeHtml(s.title)}</div>
+                        <div class="text-[13px] text-google-secondaryLight mt-1 leading-relaxed">${escapeHtml(s.description)}</div>
+                    </div>
+                `;
+            });
+
+            // Weaknesses Layout Mapping Structure Arrays
+            const weaknessesContainer = document.getElementById('reportWeaknesses');
+            weaknessesContainer.innerHTML = report.weaknesses.length ? '' : '<div class="text-[14px] text-google-secondaryLight py-2">No structural logic defects detected.</div>';
+            report.weaknesses.forEach(w => {
+                weaknessesContainer.innerHTML += `
+                    <div class="pt-3 first:pt-0">
+                        <div class="text-[14px] font-bold text-google-textLight tracking-tight">${escapeHtml(w.title)}</div>
+                        <div class="text-[13px] text-google-secondaryLight mt-1 leading-relaxed">${escapeHtml(w.description)}</div>
+                    </div>
+                `;
+            });
+
+            // Premium comparative mapping elements transformation blocks
+            const rebuttalsContainer = document.getElementById('reportRebuttals');
+            rebuttalsContainer.innerHTML = report.rebuttal_suggestions.length ? '' : '<div class="text-[14px] text-google-secondaryLight">No comparative data compiled.</div>';
+            report.rebuttal_suggestions.forEach(item => {
+                rebuttalsContainer.innerHTML += `
+                    <div class="grid grid-cols-1 md:grid-cols-2 gap-4 border border-[#e0e0e0] rounded-[20px] p-5 bg-google-lightSurface shadow-sm">
+                        <div class="space-y-1.5">
+                            <span class="text-[10px] font-bold text-[#ea4335] uppercase tracking-wider bg-red-50 px-2 py-0.5 rounded-md">Original Assertion</span>
+                            <p class="text-[13px] text-google-secondaryLight font-medium italic leading-relaxed">"${escapeHtml(item.original_argument)}"</p>
+                        </div>
+                        <div class="space-y-1.5 border-t md:border-t-0 md:border-l border-[#e0e0e0] pt-4 md:pt-0 md:pl-5">
+                            <span class="text-[10px] font-bold text-green-600 uppercase tracking-wider bg-green-50 px-2 py-0.5 rounded-md">Optimized Alternative</span>
+                            <p class="text-[13px] text-google-textLight font-semibold leading-relaxed">"${escapeHtml(item.improved_rebuttal)}"</p>
+                        </div>
+                    </div>
+                `;
+            });
+
+            // Fallacies Verification Verification Pipeline Output Interface Logic Nodes
+            const fallaciesSection = document.getElementById('fallaciesSection');
+            const fallaciesContainer = document.getElementById('reportFallacies');
+            if (!report.logical_fallacies || report.logical_fallacies.length === 0) {
+                fallaciesContainer.innerHTML = `<p class="text-[13px] text-google-secondaryLight font-medium">No system tracking fallacies were flagged within active session transcripts.</p>`;
+            } else {
+                fallaciesContainer.innerHTML = '';
+                report.logical_fallacies.forEach(f => {
+                    fallaciesContainer.innerHTML += `
+                        <div class="border-l-4 border-amber-500 pl-4 py-1.5 bg-amber-50/40 rounded-r-xl pr-4">
+                            <div class="text-[14px] font-bold text-google-textLight">${escapeHtml(f.fallacy)}</div>
+                            <div class="text-[13px] text-google-secondaryLight italic mt-1">Instance: "${escapeHtml(f.example)}"</div>
+                        </div>
+                    `;
+                });
+            }
+
+            // Checklist Style Recommendations Layout Output Mapping Context Structures
+            const recsContainer = document.getElementById('reportRecommendations');
+            recsContainer.innerHTML = report.coaching_recommendations.length ? '' : '<div class="text-[14px] text-google-secondaryLight">No explicit recommendation guidelines registered.</div>';
+            report.coaching_recommendations.forEach(r => {
+                recsContainer.innerHTML += `
+                    <div class="flex items-start gap-4 py-3 first:pt-0 last:pb-0 border-b border-[#f1f3f4] last:border-none">
+                        <div class="w-5 h-5 rounded-full border-2 border-google-blue bg-white mt-0.5 shrink-0 flex items-center justify-center text-[10px] text-google-blue font-bold">✓</div>
+                        <div class="space-y-1">
+                            <span class="text-[10px] font-bold text-google-blue uppercase tracking-wider bg-blue-50 px-2 py-0.5 rounded-md">${escapeHtml(r.category)}</span>
+                            <p class="text-[14px] text-google-textLight font-semibold leading-relaxed">${escapeHtml(r.recommendation)}</p>
+                        </div>
+                    </div>
+                `;
+            });
+
+            document.getElementById('loadingScreen').style.display = 'none';
+            document.getElementById('reportScreen').style.display = 'flex';
+
+        } catch (err) {
+            alert(`Template Interface Transformation Defect Caught: ${err.message}`);
+            returnToSetup();
+        }
+    }
+
+    function returnToSetup() {
+        clearInterval(statusPollingInterval);
+        activeSessionId = null;
+        document.getElementById('transcriptArea').innerHTML = '';
+        document.getElementById('sttPreview').textContent = "Hold SPACEBAR or interaction triggers to activate live voice stream channel.";
+        document.getElementById('reportScreen').style.display = 'none';
+        document.getElementById('loadingScreen').style.display = 'none';
+        document.getElementById('debateScreen').style.display = 'none';
+        document.getElementById('setupScreen').style.display = 'flex';
+    }
+</script>
+</body>
+</html>

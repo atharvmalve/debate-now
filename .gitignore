@@ -1,0 +1,8 @@
+# Sensitive environment variables
+.env
+
+# Python bytecode caches
+__pycache__/
+*.pyc
+*.pyo
+*.pyd
